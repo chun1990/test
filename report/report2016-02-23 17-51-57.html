@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         {word-wrap:break-word;word-break:break-all;overflow:auto;}
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2016-02-23 17:51:57</p>
+<p class='attribute'><strong>Duration:</strong> 0:50:13.183213</p>
+<p class='attribute'><strong>Status:</strong> Pass 10 Error 4</p>
+
+<p class='description'>用例执行情况：</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>testcase.AutoTest_Chrome.test_chrome_account.TestCase</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_accountName: 登录g首页后，进入支付中心，支付页面显示充值账号为当前登录账号</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: 用户登录成功！
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>testcase.AutoTest_Chrome.test_chrome_bankPay.TestCase</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_bankPay: 遍历网上银行支付方式的各个银行渠道，验证是否跳转到对应银行支付页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        error</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.1: Traceback (most recent call last):
+  File "F:\AutoTesting\testcase\AutoTest_Chrome\test_chrome_bankPay.py", line 30, in test_bankPay
+    self.driver.get(base_url)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 187, in get
+    self.execute(Command.GET, {'url': url})
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 175, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 166, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: timeout: Timed out receiving message from renderer: 20.000
+  (Session info: chrome=48.0.2564.97)
+  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>testcase.AutoTest_Chrome.test_chrome_otherPay.TestCase</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='ft3.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_otherPay: 支付中心页面切换点击左侧支付渠道，显示对应的页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.1')" >
+        error</a>
+
+    <div id='div_ft3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.1: F:\AutoTesting\screenshot\Chrome\2016-02-23 17-53-08_网上银行.jpg
+F:\AutoTesting\screenshot\Chrome\2016-02-23 17-53-11_支付宝.jpg
+支付宝 - 网上支付 安全快速！
+F:\AutoTesting\screenshot\Chrome\2016-02-23 17-53-35_支付宝.jpg
+F:\AutoTesting\screenshot\Chrome\2016-02-23 17-53-40_微信支付.jpg
+F:\AutoTesting\screenshot\Chrome\2016-02-23 17-53-42_PayPal.jpg
+Traceback (most recent call last):
+  File "F:\AutoTesting\testcase\AutoTest_Chrome\test_chrome_otherPay.py", line 57, in test_otherPay
+    print(self.driver.title)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 196, in title
+    resp = self.execute(Command.GET_TITLE)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 175, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 166, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: timeout: Timed out receiving message from renderer: 1.923
+  (Session info: chrome=48.0.2564.97)
+  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>testcase.AutoTest_Firefox.test_firefox_account.TestCase</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c4',1)">Detail</a></td>
+</tr>
+
+<tr id='ft4.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_accountName: 登录g首页后，进入支付中心，支付页面显示充值账号为当前登录账号</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.1')" >
+        error</a>
+
+    <div id='div_ft4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.1: Traceback (most recent call last):
+  File "F:\AutoTesting\framework\login.py", line 30, in login
+    WebDriverWait(self.driver, 30).until(lambda driver :driver.find_element_by_link_text(u'zhifuceshi'))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 75, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+    at FirefoxDriver.prototype.findElementInternal_ (file:///C:/Users/ZHANGC~1/AppData/Local/Temp/tmpwg2mnzpy/extensions/fxdriver@googlecode.com/components/driver-component.js:10271)
+    at FirefoxDriver.prototype.findElement (file:///C:/Users/ZHANGC~1/AppData/Local/Temp/tmpwg2mnzpy/extensions/fxdriver@googlecode.com/components/driver-component.js:10280)
+    at DelayedCommand.prototype.executeInternal_/h (file:///C:/Users/ZHANGC~1/AppData/Local/Temp/tmpwg2mnzpy/extensions/fxdriver@googlecode.com/components/command-processor.js:12274)
+    at DelayedCommand.prototype.executeInternal_ (file:///C:/Users/ZHANGC~1/AppData/Local/Temp/tmpwg2mnzpy/extensions/fxdriver@googlecode.com/components/command-processor.js:12279)
+    at DelayedCommand.prototype.execute/&lt; (file:///C:/Users/ZHANGC~1/AppData/Local/Temp/tmpwg2mnzpy/extensions/fxdriver@googlecode.com/components/command-processor.js:12221)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\AutoTesting\testcase\AutoTest_Firefox\test_firefox_account.py", line 35, in test_accountName
+    login.login(self)
+  File "F:\AutoTesting\framework\login.py", line 38, in login
+    self.driver.find_element_by_link_text(u'退出').is_display()
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 256, in find_element_by_link_text
+    return self.find_element(by=By.LINK_TEXT, value=link_text)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 664, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 175, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 166, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: {"method":"link text","selector":"退出"}
+Stacktrace:
+    at FirefoxDriver.prototype.findElementInternal_ (file:///C:/Users/ZHANGC~1/AppData/Local/Temp/tmpwg2mnzpy/extensions/fxdriver@googlecode.com/components/driver-component.js:10271)
+    at FirefoxDriver.prototype.findElement (file:///C:/Users/ZHANGC~1/AppData/Local/Temp/tmpwg2mnzpy/extensions/fxdriver@googlecode.com/components/driver-component.js:10280)
+    at DelayedCommand.prototype.executeInternal_/h (file:///C:/Users/ZHANGC~1/AppData/Local/Temp/tmpwg2mnzpy/extensions/fxdriver@googlecode.com/components/command-processor.js:12274)
+    at DelayedCommand.prototype.executeInternal_ (file:///C:/Users/ZHANGC~1/AppData/Local/Temp/tmpwg2mnzpy/extensions/fxdriver@googlecode.com/components/command-processor.js:12279)
+    at DelayedCommand.prototype.execute/&lt; (file:///C:/Users/ZHANGC~1/AppData/Local/Temp/tmpwg2mnzpy/extensions/fxdriver@googlecode.com/components/command-processor.js:12221)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>testcase.AutoTest_Firefox.test_firefox_amount.TestCase</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',1)">Detail</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_amount</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        pass</a>
+
+    <div id='div_pt5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.1: Reason: Message: No alert is present
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>testcase.AutoTest_Firefox.test_firefox_bankPay.TestCase</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',1)">Detail</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_bankPay: 遍历网上银行支付方式的各个银行渠道，验证是否跳转到对应银行支付页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+        pass</a>
+
+    <div id='div_pt6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.1: 支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 17-56-52_CCB.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 17-57-09_ICBC.jpg
+Reason: False is not true : 没有进入对应支付方式页面ICBC
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 17-57-27_ABC.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 17-57-46_PSBC.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 17-58-05_BOC.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 17-58-23_CMB.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 17-58-42_COMM.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 17-59-02_CEB.jpg
+Reason: argument of type 'NoneType' is not iterable
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-00-22_CIB.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-00-41_GDB.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-01-02_SPABANK.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-01-22_SDB.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-01-42_SPDB.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-02-02_CMBC.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-02-23_CITIC.jpg
+Reason: argument of type 'NoneType' is not iterable
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-03-44_NBBANK.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-04-04_SHBANK.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-04-24_BJRCB.jpg
+Reason: False is not true : 没有进入对应支付方式页面BJRCB
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-04-45_BJBANK.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-05-06_HZCB.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-05-27_SHRCB.jpg
+支付宝 - 网上支付 安全快速！:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-05-48_FDB.jpg
+:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-06-08_NJCB.jpg
+:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-06-30_CBHB.jpg
+东亚中国-网上支付系统:
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-06-52_HKBEA.jpg
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>testcase.AutoTest_Firefox.test_firefox_otherPay.TestCase</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',1)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_otherpay: 支付中心页面切换点击左侧支付渠道，显示对应的页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        pass</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1: F:\AutoTesting\screenshot\Firefox\2016-02-23 18-07-17_网上银行.jpg
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-07-20_支付宝.jpg
+充值中心
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-07-37_支付宝.jpg
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-07-41_微信支付.jpg
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-07-44_PayPal.jpg
+充值中心
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-08-01_PayPal.jpg
+Reason: 'PayPal' != 'PayPal结账 - 登录'
+- PayPal
++ PayPal结账 - 登录
+ : 没有进入对应支付方式页面PayPal
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-09-30_神州行移动卡.jpg
+充值中心
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-09-47_神州行移动卡.jpg
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-09-51_财付通.jpg
+充值中心
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-10-08_财付通.jpg
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-10-12_游戏卡.jpg
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-10-16_固定电话.jpg
+[支付申请]
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-10-34_固定电话和手机支付(电信&amp;联通).jpg
+易充-支付信息
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-10-52_电信固定电话充值.jpg
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-10-57_港澳台充值.jpg
+PayPal结账 - 登录
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-12-04_PayPal.jpg
+GASH
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-13-14_信用卡.jpg
+GASH
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-13-33_WebATM.jpg
+Global Payment System
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-13-53_點卡&amp;會員儲值.jpg
+Global Payment System
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-14-14_電信小額支付.jpg
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-14-19_联通卡.jpg
+充值中心
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-14-36_联通卡.jpg
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-14-41_电信卡.jpg
+充值中心
+F:\AutoTesting\screenshot\Firefox\2016-02-23 18-14-59_电信卡.jpg
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>testcase.AutoTest_Firefox.test_firefox_selectServer.TestCase</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',3)">Detail</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_noRole: 用户在充值服务器下未创建角色，点击充值按钮，提示未创建角色，无法充值</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt8.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_noSelectServer: 未选择充值服务器，点击充值按钮，弹出提示框：没有选择服务器</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt8.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_noaccount: 充值用户为空，点击充值按钮，弹出提示框：账号不能为空</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>testcase.AutoTest_Firefox.test_firefox_switchPay.TestCase</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c9',1)">Detail</a></td>
+</tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_swicthpay: 返回到支付中心页面，弹出框中点击“其他支付方式付款”下拉框选择进入对应的支付页面</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>testcase.AutoTest_IE.test_ie_amount.TestCase</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c10',1)">Detail</a></td>
+</tr>
+
+<tr id='pt10.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_amount</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.1')" >
+        pass</a>
+
+    <div id='div_pt10.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt10.1: Reason: Message: No alert is active
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>testcase.AutoTest_IE.test_ie_bankPay.TestCase</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c11',1)">Detail</a></td>
+</tr>
+
+<tr id='pt11.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_bankPay: 遍历网上银行支付方式的各个银行渠道，验证是否跳转到对应银行支付页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt11.1')" >
+        pass</a>
+
+    <div id='div_pt11.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt11.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt11.1: Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-22-10_CCB.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-23-00_ICBC.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-23-50_ABC.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-24-41_PSBC.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-25-31_BOC.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-26-21_CMB.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-27-12_COMM.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-28-02_CEB.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-28-52_CIB.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-29-42_GDB.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-30-33_SPABANK.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-31-23_SDB.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-32-13_SPDB.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-33-04_CMBC.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-33-54_CITIC.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-34-45_NBBANK.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-35-35_SHBANK.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-36-26_BJRCB.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-37-16_BJBANK.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-38-06_HZCB.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-38-56_SHRCB.jpg
+Reason: Message: Timed out waiting for page to load.
+
+F:\AutoTesting\screenshot\IE\2016-02-23 18-39-47_FDB.jpg
+Reason: Alert Text: 请选择签名要使用的证书(Please Choose  the certificate to sign)：
+&lt;super: &lt;class 'WebDriverException'&gt;, &lt;UnexpectedAlertPresentException object&gt;&gt;
+F:\AutoTesting\screenshot\IE\2016-02-23 18-40-26_NJCB.jpg
+F:\AutoTesting\screenshot\IE\2016-02-23 18-40-47_CBHB.jpg
+F:\AutoTesting\screenshot\IE\2016-02-23 18-41-04_HKBEA.jpg
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>testcase.AutoTest_IE.test_ie_otherPay.TestCase</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c12',1)">Detail</a></td>
+</tr>
+
+<tr id='ft12.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_otherPay: 支付中心页面切换点击左侧支付渠道，显示对应的页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.1')" >
+        error</a>
+
+    <div id='div_ft12.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft12.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft12.1: F:\AutoTesting\screenshot\IE\2016-02-23 18-41-48_网上银行.jpg
+F:\AutoTesting\screenshot\IE\2016-02-23 18-42-02_支付宝.jpg
+Traceback (most recent call last):
+  File "F:\AutoTesting\testcase\AutoTest_IE\test_ie_otherPay.py", line 51, in test_otherPay
+    self.select_server()
+  File "F:\AutoTesting\testcase\AutoTest_IE\test_ie_otherPay.py", line 119, in select_server
+    self.driver.find_element_by_id('server_1580501').click()
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webelement.py", line 65, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webelement.py", line 402, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 175, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 166, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementNotVisibleException: Message: Cannot click on element
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>14</td>
+    <td>10</td>
+    <td>0</td>
+    <td>4</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

@@ -1,0 +1,1077 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         {word-wrap:break-word;word-break:break-all;overflow:auto;}
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2016-07-25 12:39:37</p>
+<p class='attribute'><strong>Duration:</strong> 0:30:24.902588</p>
+<p class='attribute'><strong>Status:</strong> Pass 14 Failure 1 Error 5</p>
+
+<p class='description'>用例执行情况：</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_libao.AndroidTests</td>
+    <td>4</td>
+    <td>2</td>
+    <td>1</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c1',4)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_cardNumber: 礼包卡号校验</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: 进入礼包页面，查看已领礼包的礼包卡号是否正确
+--------------------------------------------------------------------
+登录成功
+点击侧边栏图标，弹出个人中心框
+(('hqg1bg0776ub4000053707',),) hqg1bg0776ub4000053707
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_getLibao: 礼包领取验证</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        error</a>
+
+    <div id='div_ft1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.2: 进入礼包页面，点击领取按钮，成功领取礼包码
+-----------------------------------------------------------------
+登录成功
+点击侧边栏图标，弹出个人中心框
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-41-38_礼包领取成功.jpg
+Traceback (most recent call last):
+  File "F:\AutoTesting\testcase\AutoTest_SDK\SDK_portrait\test_libao.py", line 191, in test_getLibao
+    self.driver.WaitId(30,'game_getgameok_code_text')
+  File "F:\AutoTesting\framework\android.py", line 114, in WaitId
+    WebDriverWait(self, T).until(lambda x: x.find_element_by_id(id))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 75, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_libaoDetail: 礼包详情校验</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: 进入礼包页面，查看礼包详情及使用方式与后台配置的是否一致
+---------------------------------------------------------------------
+登录成功
+点击侧边栏图标，弹出个人中心框
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-43-03_列表详情页10003礼包.jpg
+10003礼包 防守打 反倒是
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-43-13_列表详情页普通礼包10003.jpg
+普通礼包10003 防守打 服
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.4' class='none'>
+    <td class='failCase'><div class='testcase'>test_libaoPage: 礼包页面校验</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        fail</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.4: 进入礼包页面，查看已上线礼包的数目及礼包名称是否正确
+---------------------------------------------------
+登录成功
+点击侧边栏图标，弹出个人中心框
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-44-04_福利.jpg
+['10003礼包', '普通礼包10003'] ['10003礼包淘号', '淘号礼包', '普通礼包10003', '10003礼包']
+Traceback (most recent call last):
+  File "F:\AutoTesting\testcase\AutoTest_SDK\SDK_portrait\test_libao.py", line 51, in test_libaoPage
+    self.assertTrue(self.driver.contrast_elem(libao_show,libao_sql),'礼包显示错误')
+AssertionError: None is not true : 礼包显示错误
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_orderQuery.AndroidTests</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_orderQuery: 验证当前用户订单显示</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: 查看侧边栏-个人账号-充值查询，验证各页面订单号是否显示正确
+---------------------------------------------------------------------
+登录成功
+点击侧边栏图标，弹出个人中心框
+253733180 138****0582
+.activity.PPSGameSlidebarActivity
+-----------------进入当前游戏-本月订单页面----------------
+2016-07-01 00:00:00 2016-07-25 12:45:10 253733180
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-45-18_本月.jpg
+['81107406', '81107349', '81107024'] ['81107024', '81107349', '81107406']
+-----------------进入当前游戏-上月订单页面----------------
+2016-06-01 00:00:00 2016-07-01 00:00:00 253733180
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-45-38_上月.jpg
+['80737842', '80737812', '80624598'] ['80624598', '80737812', '80737842']
+-----------------进入当前游戏-前月订单页面----------------
+2016-05-01 00:00:00 2016-06-01 00:00:00 253733180
+当前游戏无订单
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-45-58_前月.jpg
+--------进入所有游戏-本月订单页面--------
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-46-07_本月.jpg
+['81107406', '81107349', '81107024'] ['81107024', '81107349', '81107406']
+--------进入所有游戏-上月订单页面--------
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-46-28_上月.jpg
+['80919827', '80903426', '80737842', '80737812', '80660686', '80660414', '80660369', '80660230', '80658201', '80658072', '80657972', '80625529', '80624598'] ['80624598', '80625529', '80657972', '80658072', '80658201', '80660230', '80660369', '80660414', '80660686', '80737812', '80737842', '80903426', '80919827']
+--------进入所有游戏-前月订单页面--------
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-47-13_前月.jpg
+['79976116', '79976007'] ['79976007', '79976116']
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_payCenter_arbitray.AndroidTests</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',3)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_payCenter_inputMoney: 任意金额支付页面-输入充值金额</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        pass</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: 选择充值金额，充值金额显示正确
+--------------------------------------------------------------
+登录成功
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-48-25_输入支付金额.jpg
+￥3
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-48-44_输入支付金额.jpg
+￥1
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-49-04_输入支付金额.jpg
+￥10
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-49-24_输入支付金额.jpg
+￥99998
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-49-41_输入支付金额.jpg
+￥1000
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-50-01_输入支付金额.jpg
+￥99999
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_payCenter_paymentProcess: 任意金额支付页面-正向支付流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.2')" >
+        pass</a>
+
+    <div id='div_pt3.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.2: 选择充值金额、优惠、支付方式，查看支付流程是否正常
+------------------------------------------------------------------------
+登录成功
+已安装支付宝客户端，弹出支付宝页面
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-51-03_支付宝客户端支付页面.jpg
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_payCenter_selectMoney: 任意金额支付页面-选择充值金额</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.3')" >
+        pass</a>
+
+    <div id='div_pt3.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.3: 选择充值金额，充值金额显示正确
+----------------------------------------------------------
+登录成功
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-51-43_任意金额支付中心.jpg
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-51-53_输入金额为空.jpg
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-52-04_金额弹出框.jpg
+6元 ￥6
+30元 ￥30
+60元 ￥60
+68元 ￥68
+98元 ￥98
+198元 ￥198
+328元 ￥328
+648元 ￥648
+1000元 ￥1000
+2000元 ￥2000
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_payCenter_button.AndroidTests</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',2)">Detail</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_payCenter_page: 固定金额支付页面-支付渠道</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: 切换点击右方的支付渠道icon，左方显示相应的支付方式
+-----------------------------------------------
+登录成功
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-53-20_固定金额支付中心.jpg
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-53-27_icon.jpg
+微信支付
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-53-35_icon.jpg
+支付宝钱包
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-53-42_icon.jpg
+游戏卡
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-53-50_icon.jpg
+银行卡
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-53-59_icon.jpg
+财付通网页
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-54-07_icon.jpg
+支付宝网页
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-54-15_icon.jpg
+充值卡
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-54-23_icon.jpg
+银联网页
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_payCenter_payment: 遍历支付渠道进行支付</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.2')" >
+        pass</a>
+
+    <div id='div_pt4.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.2: 切换选择支付渠道点击确认支付，进入对应充值页面
+-----------------------------------------------------------------
+登录成功
+1、选择微信支付方式，进入微信登录界面
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-55-26_微信支付.jpg
+.activity.TestActivity
+2、选择支付宝钱包，进入支付宝支付页面
+已安装支付宝客户端，弹出支付宝页面
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-55-57_支付宝钱包.jpg
+3、选择银行卡，进入银行卡支付页面
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-56-42_银行卡.jpg
+4、选择财付通，进入财付通支付网页
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-57-26_财付通.jpg
+5、选择支付宝网页，进入支付宝网页
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-58-14_支付宝网页.jpg
+6、选择银联网页，进入银联支付网页
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 12-58-57_银联网页.jpg
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_payCenter_channelDiscount.AndroidTests</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c5',2)">Detail</a></td>
+</tr>
+
+<tr id='ft5.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_arbitray_channelDiscount: 任意支付页面-渠道折扣</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.1')" >
+        error</a>
+
+    <div id='div_ft5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.1: 验证任意支付页面各打折渠道抵扣金额是否正确
+---------------------------------------------------------------
+登录成功
+有渠道折扣活动
+Traceback (most recent call last):
+  File "F:\AutoTesting\testcase\AutoTest_SDK\SDK_portrait\test_payCenter_channelDiscount.py", line 110, in test_arbitray_channelDiscount
+    self.driver.find_element_by_name('确定').click()
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 304, in find_element_by_name
+    return self.find_element(by=By.NAME, value=name)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 664, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 175, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Python34\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 166, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_buttonPayment_channelDiscount: 固定金额支付页面-渠道折扣</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.2')" >
+        error</a>
+
+    <div id='div_ft5.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.2: 验证固定支付页面各打折渠道抵扣金额是否正确
+---------------------------------------------------------------
+登录成功
+Traceback (most recent call last):
+  File "F:\AutoTesting\testcase\AutoTest_SDK\SDK_portrait\test_payCenter_channelDiscount.py", line 53, in test_buttonPayment_channelDiscount
+    self.driver.find_element_by_name('确定').click()
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 304, in find_element_by_name
+    return self.find_element(by=By.NAME, value=name)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 664, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 175, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Python34\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 166, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_payCenter_gold.AndroidTests</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c6',2)">Detail</a></td>
+</tr>
+
+<tr id='ft6.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_arbitray_gold: 任意支付-金币抵扣</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.1')" >
+        error</a>
+
+    <div id='div_ft6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.1: 任意金额页面，使用金币抵扣，查看实际支付金额及抵扣金额显示正确
+-------------------------------------------------------------------------
+登录成功
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-01-43_金币抵扣-0.jpg
+Traceback (most recent call last):
+  File "F:\AutoTesting\testcase\AutoTest_SDK\SDK_portrait\test_payCenter_gold.py", line 141, in test_arbitray_gold
+    self.driver.find_element_by_name('确定').click()
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 304, in find_element_by_name
+    return self.find_element(by=By.NAME, value=name)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 664, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 175, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Python34\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 166, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft6.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_buttonPayment_gold: 固定支付-金币抵扣</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.2')" >
+        error</a>
+
+    <div id='div_ft6.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.2: 固定金额页面，使用金币抵扣，查看实际支付金额及抵扣金额显示正确
+-------------------------------------------------------------------------
+登录成功
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-02-46_金币抵扣-0.jpg
+Traceback (most recent call last):
+  File "F:\AutoTesting\testcase\AutoTest_SDK\SDK_portrait\test_payCenter_gold.py", line 59, in test_buttonPayment_gold
+    self.driver.find_element_by_name('确定').click()
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 304, in find_element_by_name
+    return self.find_element(by=By.NAME, value=name)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 664, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 175, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Python34\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 166, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_payCenter_voucher.AndroidTests</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',2)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_arbitray_voucher: 任意支付-代金券抵扣</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        pass</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1: 任意金额页面，使用代金券抵扣，查看实际支付金额及抵扣金额显示正确
+-------------------------------------------------------------------------
+登录成功
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-03-40_任意支付-代金券.jpg
+点击我的优惠中的代金券,查看代金券抵扣金额及实际充值金额是否正确
+￥5 -￥5 ￥63
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_buttonPayment_voucher: 固定支付-代金券抵扣</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.2')" >
+        pass</a>
+
+    <div id='div_pt7.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.2: 固定金额页面，使用代金券抵扣，实际支付金额及抵扣金额显示正确
+---------------------------------------------------------------------------
+登录成功
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-04-38_固定支付-代金券.jpg
+点击我的优惠中的代金券,查看代金券抵扣金额及实际充值金额是否正确
+￥5 -￥5 ￥25
+不抵扣 -￥5 ￥30
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_userInfo.AndroidTests</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',2)">Detail</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_jiugonge: 遍历进入九宫格各页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.1')" >
+        pass</a>
+
+    <div id='div_pt8.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.1: 查看侧边栏-九宫格，遍历点击各页面
+-------------------------------------------------------------------
+登录成功
+点击侧边栏图标，弹出个人中心框
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-05-37_论坛.jpg
+论坛 论坛
+点击侧边栏图标，弹出个人中心框
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-05-54_消息盒.jpg
+消息盒 消息盒
+点击侧边栏图标，弹出个人中心框
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-06-12_客服.jpg
+客服 客服
+点击侧边栏图标，弹出个人中心框
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-06-26_福利.jpg
+福利 福利
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt8.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_userInfo_page: 验证启动自动登录功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.2')" >
+        pass</a>
+
+    <div id='div_pt8.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.2: 查看侧边栏-个人账号，进入个人信息页面，遍历点击各页面
+--------------------------------------------------------------------
+登录成功
+点击侧边栏图标，弹出个人中心框
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-07-11_侧边栏.jpg
+253733180 138****0582
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-07-18_个人信息.jpg
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-07-29_充值查询.jpg
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-07-44_修改密码.jpg
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-08-00_常见问题.jpg
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_virtual.AndroidTests</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c9',1)">Detail</a></td>
+</tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_virtual: 虚拟卡页面校验</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.1')" >
+        pass</a>
+
+    <div id='div_pt9.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.1: 进入虚拟卡页面，查看该用户虚拟卡
+-------------------------------------------------------------
+登录成功
+点击侧边栏图标，弹出个人中心框
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-08-49_虚拟卡页面.jpg
+['增值服务三国名将礼包', '增值服务神曲礼包', '开心酷跑国庆礼包', '魁拔新手礼包', '铠甲勇士金秋礼包', '雷神战机礼包', '3d天天摩托', '3d狂野赛车', '街机地下城专属礼包', '次留页面登陆抽奖影音VIP7天', '次留页面橙豆抽奖VIP7天卡', '蜀山战纪VIP活动页礼包', '50元京东卡（航海王专属）'] ['50元京东卡（航海王专属）', '蜀山战纪VIP活动页礼包', '次留页面橙豆抽奖VIP7天卡', '次留页面登陆抽奖影音VIP7天', '街机地下城专属礼包', '3d狂野赛车', '3d天天摩托', '雷神战机礼包', '铠甲勇士金秋礼包', '魁拔新手礼包', '开心酷跑国庆礼包', '增值服务神曲礼包', '增值服务三国名将礼包']
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_voucher.AndroidTests</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c10',1)">Detail</a></td>
+</tr>
+
+<tr id='pt10.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_voucher: 代金券页面校验</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.1')" >
+        pass</a>
+
+    <div id='div_pt10.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt10.1: 进入代金券页面，查看该用户代金券
+------------------------------------------------------------------
+登录成功
+点击侧边栏图标，弹出个人中心框
+F:\AutoTesting\screenshot\AndroidSDK\SDK_portrait\2016-07-25 13-09-56_代金券页面.jpg
+代金券页面不为空
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>20</td>
+    <td>14</td>
+    <td>1</td>
+    <td>5</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
